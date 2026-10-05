@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a conversion or replay playback problem.
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe what happened and what you expected.
+    validations:
+      required: true
+  - type: input
+    id: converter
+    attributes:
+      label: Aces Replay Converter version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: flashback
+    attributes:
+      label: Flashback version
+      placeholder: "0.39.10"
+    validations:
+      required: true
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod loader setup
+      options:
+        - Fabric
+        - NeoForge with Sinytra Connector
+        - Other (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Minecraft and modpack versions
+      description: Include recording and playback Minecraft versions, loader/Connector versions, and modpack name/version. Were the recording and playback made with the same mods and versions?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include whether the problem happens during conversion, opening, seeking, or playback.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, crash report, or screenshot
+      description: Attach latest.log and any crash report, or paste the relevant error. Remove private information before uploading. A small sample recording can help if you are comfortable sharing it.
+    validations:
+      required: false
