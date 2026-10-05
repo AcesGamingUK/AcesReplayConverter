@@ -16,6 +16,11 @@ with zipfile.ZipFile(SOURCE) as src, zipfile.ZipFile(jar_path, 'w', compression=
             meta = json.loads(data)
             assert meta['version'] == '0.1.4-dev'
             meta['version'] = '1.0.0'
+            meta['contact'] = {
+                'homepage': 'https://github.com/AcesGamingUK/AcesReplayConverter',
+                'issues': 'https://github.com/AcesGamingUK/AcesReplayConverter/issues',
+                'sources': 'https://github.com/AcesGamingUK/AcesReplayConverter',
+            }
             meta['description'] = 'Convert native Minecraft 1.21.1 ReplayMod MCPR recordings into Flashback replays from the replay selection screen. Includes handling for recorded Simple Voice Chat data. Built for protocol 767 and Flashback 0.39.10.'
             data = json.dumps(meta, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
         elif entry.filename == 'assets/flashback-converter/icon.png':
@@ -42,3 +47,4 @@ report = {'release': '1.0.0', 'base': '0.1.4-dev', 'sha256': checksum,
           'scope': 'Release packaging; version, metadata description and icon only. Existing conversion limitations remain.'}
 (OUT / 'release-verification.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
 print(json.dumps(report, indent=2))
+
